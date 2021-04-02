@@ -95,6 +95,7 @@ void setup()
   Serial.begin(9600); // Initialize serial communications with the PC
   //while (!Serial);    // Do nothing if no serial port is opened (added for Arduinos based on ATMEGA32U4)
 
+  SPI.begin();        // Init SPI bus
   for (uint8_t reader = 0; reader < NR_OF_READERS; reader++) {
     mfrc522[reader].PCD_Init(ssPins[reader], RST_PIN); // Init each MFRC522 card
     Serial.print(F("Reader "));
